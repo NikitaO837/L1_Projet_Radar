@@ -3,4 +3,12 @@ Nice Sophia Antipolis
 
 # L1_Projet_Radar
 
+Bla bla bla
 
+# Description du projet
+
+Bla bla bla
+
+# Materilel utilsé
+
+Bla bla bla
