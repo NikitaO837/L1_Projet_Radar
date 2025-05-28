@@ -5,6 +5,8 @@ Nice Sophia Antipolis*
 
 # Projet - Radar de détection avec transmission LoRa
 
+---
+
 ## Présentation
 
 L’objectif principal était de créer un système capable de mesurer la distance à l’aide d’un capteur à ultrasons monté sur un servomoteur, et de transmettre les données via la connexion sans fil **LoRa** à une carte réceptrice, qui interprète ces données et affiche un retour visuel via des LED RGB.
