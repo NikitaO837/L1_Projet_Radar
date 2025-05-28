@@ -2,15 +2,15 @@
 #include "LoRa.h"
 #include <FastLED.h> // http://librarymanager/All#FASTLED
 
-#define LED_PIN     4
+#define LED_PIN 4
 #define DATA_PIN 4
-#define NUM_LEDS    21
-#define BRIGHTNESS  64
-#define LED_TYPE    WS2811
+#define NUM_LEDS 21
+#define BRIGHTNESS 64
+#define LED_TYPE WS2811
 #define COLOR_ORDER GRB
 CRGB leds[NUM_LEDS];
 CRGBPalette16 currentPalette;
-TBlendType    currentBlending;
+TBlendType    currentBlending; //Inclusion des bibliothéques, définition des variables et constantes.
 int counter = 0;
 
 // Parameters you can play with :
@@ -22,17 +22,17 @@ int codingRateDenominator=5; // Numerator is 4, and denominator from 5 to 8, def
 int preambleLength=8; // from 2 to 20, default is 8
 String payload = "hello"; // you can change the payload
 
-int distance = 0;
+int distance = 0; // Valeur de la distance initiale
 
 #define SS 10
 #define RST 8
 #define DI0 6
-#define BAND 865E6  // Here you define the frequency carrier
+#define BAND 865E6 // Définition des constantes pour LoRa
 
 void setup() {
 
   Serial.begin(115200);
-  while (!Serial);
+  while (!Serial); // Activation du Serial Monitor
 
   Serial.println("LoRa Receiver");
   Serial.print("SetFrequency : ");
@@ -42,30 +42,26 @@ void setup() {
   Serial.println(spreadingFactor);
 
   SPI.begin();
-  LoRa.setPins(SS,RST,DI0);
+  LoRa.setPins(SS,RST,DI0); // Activation de LoRa de la carte récéptrice
 
   if (!LoRa.begin(BAND)) {
     Serial.println("Starting LoRa failed!");
-    while (1);
+    while (1); // Setup de LoRa échoué
   }
  LoRa.setTxPower(txPower,1);
  LoRa.setSpreadingFactor(spreadingFactor);
  LoRa.setSignalBandwidth(signalBandwidth);
  LoRa.setCodingRate4(codingRateDenominator);
- LoRa.setPreambleLength(preambleLength);
- 
- // Setup LED
+ LoRa.setPreambleLength(preambleLength); // Setup LoRa
 
  Serial.println("resetting");
  LEDS.addLeds<WS2812,DATA_PIN,RGB>(leds,NUM_LEDS);
- LEDS.setBrightness(84);
+ LEDS.setBrightness(84);  // Setup LED
  
  FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
  FastLED.setBrightness(  BRIGHTNESS );
 
 }
-
-//void fadeall() { for(int i = 0; i < NUM_LEDS; i++) { leds[i].nscale8(250); } }
 
 void loop() {
 
@@ -82,10 +78,10 @@ if (distance>.0343) {
   if (packetSize) {
 
     String received = "";
-    // received a packet
+    // packet bien reçu
     Serial.print("Received distance is ");
 
-    // read packet
+    // lecture du packet reçu
     while (LoRa.available()) {
       Serial.print((char)LoRa.read());
       received += (char)LoRa.read();
@@ -93,7 +89,7 @@ if (distance>.0343) {
 
     distance = received.toFloat();
     Serial.print(" cm ");
-    Serial.println("");
+    Serial.println(""); // String complémentaire pour affichage du signal reçu plus claire
   }
 
   delay(1000);
