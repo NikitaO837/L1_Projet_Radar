@@ -41,7 +41,7 @@ Voici une visualisation générée par IA représentant l’idée de départ de 
 
 ## Variantes envisagées
 
-Différentes versions du projet ont été explorées avant d'arriver au design final :
+L'idée de monter ce radar à une voiture RC n'est pas exhaustive. Différentes versions du projet ont été explorées avant d'arriver au design final :
 
 ![Variantes du concept](images/variantes.jpg)
 
@@ -51,7 +51,7 @@ Différentes versions du projet ont été explorées avant d'arriver au design f
 
 [Capteur ultrasons] --> [Arduino émetteur + Servomoteur] --> [LoRa] --> [LoRa] --> [Arduino récepteur] --> [LEDs + Alerte sonore]
 
-IMAGE
+![Schéma du fonctionnement](images/schema.jpg)
 
 ---
 
@@ -61,6 +61,7 @@ Le dossier `/code` contient les scripts pour les deux cartes :
 
 - `sender.ino` – Mesure et envoie la distance.
 - `receiver.ino` – Reçoit les données, affiche l’état via LED, déclenche une alarme.
+- `prototype.ino` - Code utilisé pendant la vérification du fonctionnement du prototype
 
 ---
 
@@ -73,10 +74,13 @@ Le dossier `/code` contient les scripts pour les deux cartes :
 
 ## Améliorations possibles
 
-À cause d'une désynchronisation apparante il est préférable de modifier les delais dans le code, ainsi que de simplifier les messages envoyés par LoRa, pour décharger un peu le cartes. Sinon on a créé un projet suffisamment intéressant et qui marche.
+À cause d'une désynchronisation apparante il est préférable de modifier les delais dans le code, ainsi que de simplifier les messages envoyés par LoRa, pour décharger un peu le cartes. Sinon on a créé un projet suffisamment intéressant et qui marche. Merci à l'équipe et au professeur de nous avoir donné cette possibilité.
 
 ---
 
 ## Auteurs
 
-- Nikita ONEGIN, Mykola MAKEDON, Denys KARPOV, Illia VEREMII
+- Nikita ONEGIN
+- Mykola MAKEDON
+- Denys KARPOV
+- Illia VEREMII
