@@ -11,11 +11,9 @@ CRGBPalette16 currentPalette;
 TBlendType    currentBlending; 
 Servo myservo;  // create servo object to control a servo
 
-
 const int trigPin = A3;  
 const int echoPin = A2;
-float duration, distance;   
-
+float duration, distance; // Attachement des pins pour le capteur: A3 pour Trig et A2 pour Echo  
 
 void setup() {
   delay( 1000 ); // power-up safety delay
@@ -37,7 +35,7 @@ void setup() {
  currentPalette = RainbowColors_p;
  currentBlending = LINEARBLEND;
 
- myservo.attach(A1);  // attaches the servo on pin A2 to the servo object
+ myservo.attach(A1);  // attaches the servo on pin A1 to the servo object
 
 }
 
