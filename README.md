@@ -70,6 +70,12 @@ Le dossier `/code` contient les scripts pour les deux cartes :
 ### Version finale du projet :
 ![Projet terminé](images/final.jpg)
 
+- Le dossier `/doc` contient les cahiers de suivi individuels de chaque participant du projet
+
+- Le dossier `/images` en contient la documentation visuelle de ce projet
+
+- Le dossier `/presentation` contient la présentation, utilisée pour la soutenance de ce projet
+
 ---
 
 ## Améliorations possibles
