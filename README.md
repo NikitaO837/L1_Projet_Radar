@@ -61,7 +61,7 @@ Le dossier `/code` contient les scripts pour les deux cartes :
 
 - `sender.ino` – Mesure et envoie la distance.
 - `receiver.ino` – Reçoit les données, affiche l’état via LED, déclenche une alarme.
-- `prototype.ino` - Code utilisé pendant la vérification du fonctionnement du prototype
+- `radar_prototype.ino` - Code utilisé pendant la vérification du fonctionnement du prototype
 
 ---
 
