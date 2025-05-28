@@ -1,1 +1,1 @@
-Dans ce repertoire est placé la présentation de ce projet
+*Dans ce répertoire est placé la présentation de ce projet utilisé en soutenance*
