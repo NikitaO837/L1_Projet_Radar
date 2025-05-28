@@ -65,7 +65,7 @@ Le dossier `/code` contient les scripts pour les deux cartes :
 
 ---
 
-## Documentation visuelle
+## Documentation
 
 ### Version finale du projet :
 ![Projet terminé](images/final.jpg)
