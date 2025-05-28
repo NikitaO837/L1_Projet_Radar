@@ -11,15 +11,15 @@
 #define RST 8
 #define DI0 3
 #define BAND 865E6  // Here you define the frequency carrier
-CRGB leds[NUM_LEDS];
+CRGB leds[NUM_LEDS]; // Setup LEDs, LoRa, capteur et inclusion des bibliothéques pour la carte émettrice
 CRGBPalette16 currentPalette;
 TBlendType    currentBlending; 
-Servo myservo;  // create servo object to control a servo
+Servo myservo;  // Création de l'objet servo pour controler le servomoteur
 
 int counter = 0;
 const int trigPin = A2;  
 const int echoPin = A3;
-const int signAl = A0;
+const int signAl = A0; // Attribution des pins: A2 pour Trig du capteur, A2 pour Echo du capteur, AO pour l'alarme
 
 float duration, distance; 
 
@@ -50,15 +50,9 @@ void setup() {
 
 // Setup LED
 
-/* FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
- FastLED.setBrightness( BRIGHTNESS );
-    
- currentPalette = RainbowColors_p;
- currentBlending = LINEARBLEND; */
+ myservo.attach(A1);  // attaches the servo on pin A1 to the servo object
 
- myservo.attach(A1);  // attaches the servo on pin A2 to the servo object
-
-  while (!Serial);
+  while (!Serial); // Activation de LoRa
 
   Serial.println("LoRa Sender");
   Serial.print("SetFrequency : ");
@@ -72,7 +66,7 @@ void setup() {
 
   if (!LoRa.begin(BAND)) {
     Serial.println("Starting LoRa failed!");
-    while (1);
+    while (1); // Activation de LoRa échoué
   }
  LoRa.setTxPower(txPower,1);
  LoRa.setSpreadingFactor(spreadingFactor);
@@ -84,7 +78,7 @@ void setup() {
 
 void loop() {
 
-for (int i=0; i<=15; i=i+5){
+for (int i=0; i<=80; i=i+10){
   myservo.write(i);                  // sets the servo position according to the scaled value
   delay(300);}                           // waits for the servo to get there
 
@@ -105,7 +99,7 @@ for (int i=0; i<=15; i=i+5){
   FastLED.show();
   delay(10); // power-up safety delay
 
-  for (int i=15; i>=0; i=i-5){
+  for (int i=80; i>=0; i=i-10){
   myservo.write(i);                  // sets the servo position according to the scaled value
   delay(300);}                       // waits for the servo to get there
 
@@ -131,7 +125,7 @@ if (distance <= 15){
   Serial.print("Distance = {");
   Serial.print(distance);
   Serial.print("}cm check N°");
-  Serial.println(counter);
+  Serial.println(counter); // String esthétique
  
   delay(100);
 }
