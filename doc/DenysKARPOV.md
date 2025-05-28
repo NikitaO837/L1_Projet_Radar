@@ -17,7 +17,7 @@ Moi, j’ai rassemblé les slides de notre diaporama et parlé de notre planning
 
 ---
 
-##### Pause Examens 5–16 Mai
+#### Pause Examens 5–16 Mai
 
 ---
 
